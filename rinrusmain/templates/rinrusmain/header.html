@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>RinRus</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-</head>
 <style>
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+a.basicLink {
+        color: blue !important;
+    }
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -117,6 +104,8 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #fff;
+    background: #0D3182 ;
 }
 
 #sidebar ul li a:hover {
@@ -223,17 +212,17 @@ a.article:hover {
             </div>
 
             <ul class="list-unstyled components">
-                <li >
-                    <a href="#">Home</a>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
                 </li>
                 <li>
-                    <a href="{% url 'index' %}">Build Models</a>
+                    <a href="{% url 'build' %}">Build Models</a>
                 </li>
 				<li>
                     <a href="{% url 'search' %}">Search</a>
                 </li>
 				<li>
-                    <a href="#">Forum</a>
+                    <a href="{% url 'forum' %}">Forum</a>
                 </li>
 				<li>
                     <a href="{% url 'about' %}">About</a>
@@ -254,11 +243,13 @@ a.article:hover {
                         <i class="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
                     </button>
-                    
-
-                    
-                     login
-                     
+                    {% if not request.user.is_authenticated %}
+                    <a href="{% url 'log_in' %}"> Login / Sign Up </a>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'search' %}"> Welcome, {{ user.username }}! </a>
+                    <a href="{% url 'log_out' %}"> Logout </a>
+                    {% endif %}
                 </div>
             </nav>
 

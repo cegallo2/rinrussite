@@ -1,33 +1,7 @@
-
-<!DOCTYPE html>
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>RinRus</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-</head>
-
-
-<body>
-{% include "./header.html" %}	
-
-
-{% load static %}
+{% extends "./base.html" %}
 {% block content %}
+{% load static %}
+<h1>Build Model</h1>
 <form method="post" enctype="multipart/form-data" autocomplete="on"> 
 {% csrf_token %}
 <div class="form-group row">
@@ -43,7 +17,7 @@
 	<p>
 	<div class="form-group row">
 	
-		<input type="file" class="form-control-file"  aria-describedby="fileHelp" name="myfile" accept=".pdb,.ent,application/octet-stream,application/xml-external-parsed-entity" required>
+		<input type="file" class="form-control-file"  aria-describedby="fileHelp" name="myfile" accept=".pdb,.ent,application/octet-stream,application/xml-external-parsed-entity,chemical/x-pdb" required>
 		<small id="fileHelp" class="form-text text-muted">Upload a Protenated PDB file</small>
 		
 	</div>
@@ -182,7 +156,5 @@
 			<p><font color="red">{{ uploaded_file_error }} </font></p>
 	{% endif %}
   
- 
 {% endblock %}
-</body>
-</html>
+

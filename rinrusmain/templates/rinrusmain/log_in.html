@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+{% block content %}
+{% load static %}
+<h1> Login </h1>
+<br>
+<a href="{% url 'signup' %}"> Not currently signed up? Click here! </a>
+{% if login_error %}
+<p style="color:red">{{ login_error }}</p>
+{% endif %}
+<form method="post" enctype="multipart/form-data" autocomplete="on"> 
+{% csrf_token %}
+Username:
+<div class="form-group row">
+	<input class="form-control" type="text" pattern="[a-zA-Z0-9-]+" name="username" required>	
+</div>
+Password:
+<div class="form-group row">
+	<input class="form-control" type="password"  name="password" required>	
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+{% endblock %}

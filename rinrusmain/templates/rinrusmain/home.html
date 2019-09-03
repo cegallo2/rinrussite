@@ -1,0 +1,16 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>Welcome, {{ user.first_name }}!</h1>
+{% endif %}
+
+{% if not request.user.is_authenticated %}
+<p style="color:blue">Login is required in order to use RINRUS and forum.</p>
+<p style="color:blue">Please login by clicking the top right.</p> 
+<p style="color:blue">Or, sign up if you don't have an account already. </p>
+{% endif %}
+
+{% endblock %}
+

@@ -14,7 +14,8 @@ class Simulation(models.Model):
 	simName=models.CharField(max_length=100)
 	userName=models.CharField(max_length=100, default="Not Specified")
 	modelVersion=models.DecimalField(max_digits=4, decimal_places=2, default=0.9)
-	
+
+
 
 	
 	

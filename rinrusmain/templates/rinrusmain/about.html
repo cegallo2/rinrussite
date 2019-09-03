@@ -1,37 +1,19 @@
+{% extends "./base.html" %}
 
-<!DOCTYPE html>
+{% block content %}	
+<h1>About Us</h1>
+<p style="color:black">
+    Residue Interaction Network-based ResidUe Selector (RINRUS), is a software toolkit that guides 
+    selection of atoms in a protein structure to be included in the QM-cluster, QM/MM, or ONIOM model.
+</p>
+<br> 
+<p style="color:black">
+    RINRUS is written in Python and is available on the GitHub page of Dr. Qianyi Cheng:
+    <a class="basicLink" href="https://github.com/MiloCheng17/RINRUS"> https://github.com/MiloCheng17/RINRUS </a>
+</p>
 
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>RinRus</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-</head>
-
-<style>
-    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-    a.basicLink {
-        color: blue !important;
-    }
-</style>
-<body>
-{% include "./header.html" %}	
-
-Residue Interaction Network-based ResidUe Selector (RINRUS), is a software toolkit that guides selection of atoms in a protein structure to be included in the QM-cluster, QM/MM, or ONIOM model. <br> RINRUS is written in Python and is available on the GitHub page of Dr. Qianyi Cheng: <a class="basicLink" href="https://github.com/MiloCheng17/RINRUS"> https://github.com/MiloCheng17/RINRUS </a>
-<br> Please contact Prof. Nathan DeYonker (ndyonker@memphis.edu) for more details.
- 
-</body>
-</html>
+<p style="color:black">
+    Please contact Prof. Nathan DeYonker (ndyonker@memphis.edu) for more details.
+</p>
+{% endblock %}
